@@ -26,6 +26,27 @@
 
 ## script
 ````
+#!/bin/bash
+
+# Mise à jour des packages
+sudo apt update
+
+# Installation des dépendances
+sudo apt install -y software-properties-common apt-transport-https wget
+
+# Importation de la clé GPG Microsoft
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+
+# Ajout du référentiel VSCode
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+
+# Installation de VSCode
+sudo apt update
+sudo apt install -y code
+
+echo "Visual Studio Code a été installé avec succès!"
+
 code --install-extension akamud.vscode-theme-onedark --force
 code --install-extension druideinformatique.antidote --force
 code --install-extension emilast.LogFileHighlighter --force
@@ -45,4 +66,7 @@ code --install-extension ms-vscode-remote.remote-wsl --force
 code --install-extension ms-vscode.powershell --force
 code --install-extension redhat.vscode-yaml --force
 code --install-extension rodrigovallades.es7-react-js-snippets --force
+
+echo "Fin d'installation des extensions"
+
 ````
