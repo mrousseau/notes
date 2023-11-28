@@ -69,4 +69,11 @@ code --install-extension rodrigovallades.es7-react-js-snippets --force
 
 echo "Fin d'installation des extensions"
 
+
+echo "install nvm"
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+echo "install la dernier version de node"
+nvm install node --latest-npm
+
 ````
